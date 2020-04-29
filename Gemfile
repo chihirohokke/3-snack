@@ -56,7 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'kaminari'
 
-gem 'carrierwave'
 
-#画像の加工とか
-# gem 'rmagick'
+#画像アップロード
+gem 'carrierwave'
+#画像リサイズ
+gem 'mini_magick'

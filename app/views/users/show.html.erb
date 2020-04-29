@@ -6,9 +6,10 @@
       </div>
       <div class="card-body">
         <% if @user.image? %>
-          <%= image_tag @user.image.url %>
+          <%= image_tag(@user.image.thumb.url) %>
+        <% else %>
+          <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
         <% end %>
-        <!--<img class="rounded img-fluid" src="<%#= gravatar_url(@user, { size: 500 }) %>" alt="">-->
       </div>
     </div>
   </div>  
