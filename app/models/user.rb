@@ -11,4 +11,20 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   has_many :posts
+  
+  has_many :likes
+  has_many :sweets, through: :likes, source: :post
+  
+  def sweet(post) 
+    likes.find_or_create_by(post_id: post.id) 
+  end
+  
+  def notsweet(post) 
+    like = likes.find_by(post_id: post.id)
+    like.destroy if like
+  end
+  
+  def like?(post) 
+    self.sweets.include?(post)
+  end
 end
