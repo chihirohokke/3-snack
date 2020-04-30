@@ -12,33 +12,33 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
   
-  # 画像の上限を640x480にする
-  process :resize_to_limit => [640, 480]
+  # 画像の上限
+  process :resize_to_limit => [700, 700]
  
   # 保存形式をJPGにする
   process :convert => 'jpg'
  
-  # サムネイルを生成する設定
+# サムネイルを生成する設定
+  #プロフィール詳細画像で使用
   version :thumb do
     process :resize_to_fit => [300, 300]
   end
-  
+  #ユーザー一覧&投稿詳細のユーザー画像で使用
   version :thumb100 do
     process :resize_to_fit => [100, 100]
   end
-  
+  #投稿一覧のユーザー画像で使用
   version :thumb50 do
     process :resize_to_fit => [50, 50]
   end
- 
-  version :thumb30 do
-    process :resize_to_fit => [30, 30]
-  end
-  #投稿用
+  #投稿一覧用
   version :thumb2 do
-    process :resize_to_fit => [600, 400]
+    process :resize_to_fill => [318, 180]
   end
- 
+  #投稿詳細用
+  version :thumb3 do
+    process :resize_to_fill => [636, 360]
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -72,7 +72,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   
-  #テスト
+  
   # 拡張子が同じでないとGIFをJPGとかにコンバートできないので、ファイル名を変更
   def filename
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?

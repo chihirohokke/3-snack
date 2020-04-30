@@ -1,0 +1,32 @@
+<div class="row mt-5 pb-5">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: post, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :image, "投稿画像をアップロード(必須)" %>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :title, 'タイトル' %>
+        <%= f.text_field :title, class: 'form-control' %>
+        <small id="submit-tip" class="form-text text-muted">
+        タイトルを入力してください。
+        </small>
+      </div>
+      <div class="form-group">
+        <%= f.label :content, '内容' %>
+        <%= f.text_area :content, class: 'form-control', rows: 10 %>
+        <small id="submit-tip" class="form-text text-muted">
+        レシピや内容などを入力してください。
+        </small>
+      </div>
+
+      <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+      <small id="submit-tip" class="form-text text-muted">
+        投稿する前に投稿内容を見直してください。
+      </small>
+    <% end %>
+  </div>
+</div>
