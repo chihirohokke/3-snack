@@ -10,7 +10,7 @@
    height: 300px;
  }
  
-/*.clumns .is-multiline {*/
-/*    display: flex;*/
-/*    flex-wrap: wrap;*/
-/*}*/
+/*Top-page*/
+.app-title {
+ color: #6c3524;
+}

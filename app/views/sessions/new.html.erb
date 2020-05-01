@@ -16,10 +16,9 @@
         <%= f.label :password, 'パスワード' %>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
-
       <%= f.submit 'Login', class: 'btn btn-primary btn-block' %>
     <% end %>
 
-    <p>New user? <%= link_to 'Join now!', join_path %></p>
+    <p class="pt-3">新規ユーザー登録ですか? <%= link_to 'Join now!', join_path %></p>
   </div>
 </div>

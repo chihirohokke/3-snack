@@ -1,14 +1,57 @@
-<div class="section mx-auto pb-5">
+<div class="section pb-5">
   <div class="card mx-auto" style="width: 40rem;">
     <%= image_tag(@post.image.thumb3.url) %>
       <div class="card-body">
         <span><%= link_to image_tag(@post.user.image.thumb100.url), user_path(@post.user) %></span><h2><%= @post.title %></h2>
         <p><%= @post.content %></p>
+        <% if logged_in? %>
+          <div class="float-left">
+            <%= render 'likes/sweet_button', post: @post %>
+          </div>  
+        <% end %>
+        <% if current_user == @post.user %>　
+          <div class="float-right">
+            <%= link_to "編集", edit_post_path(@post), class: "btn btn-light btn-sm" %>
+            <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除してよろしいですか？"}, class: "btn btn-danger btn-sm" %>
+          </div>
+        <% end %>
       </div>
-      <% if current_user == @post.user %>　
-        <%= link_to "編集", edit_post_path(@post), class: "btn btn-light" %>
-        <%= link_to "削除", @post, method: :delete, data: { confirm: "本当に削除してよろしいですか？"}, class: "btn btn-danger" %>
-      <% end %>
   </div>
+  <!--ここからコメント-->
+  <div class="comment-wrapper border-top　mb-10">
+    <p class="mt-5">コメント一覧</p>
+    <% @comments.each do |comment| %>
+    <table class="table">
+      <tr>
+        <td>
+          <div>
+            <% unless comment.user.blank? %>
+              <%= link_to image_tag(comment.user.image.thumb50.url), user_path(comment.user_id) %>
+            <% end %>
+              <%= comment.user.name unless comment.user.blank? %>
+            <br />
+              <%= comment.content %>
+            <% if current_user == comment.user %>
+              <%# コメント削除ボタン %>
+              <div class="float-right">
+                <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+              </div>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    </table> 
+      <br />
+    <% end %>
+    <% if logged_in? %>
+      <%= form_with(model: [@post, @comment], local: true) do |f| %>
+        <%= f.text_area :content, class: "form-control", rows: 5 %>
+        <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
+          <i class="far fa-comments"></i> コメントする
+        <% end %>
+      <% end %>
+    <% end %>
+</div>
+  <!--ここまで-->
 </div>
  

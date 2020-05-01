@@ -3,12 +3,17 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy] 
   
   def index
-    @posts = Post.order(id: :desc).page(params[:page]).per(9)
-    # @posts = current_user.posts.order(id: :desc).page(params[:page])
+    if params[:content]
+      @posts = Post.where('content LIKE ?', "%#{params[:content]}%").page(params[:page]).per(9)
+    else
+      @posts = Post.order(id: :desc).page(params[:page]).per(9)
+    end
   end
   
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = @post.comments.build
   end
   
   def new
@@ -56,7 +61,7 @@ class PostsController < ApplicationController
   def correct_user
     @post = current_user.posts.find_by(id: params[:id])
     unless @post
-      redirect_to posts_url
+      redirect_to root_url
     end  
   end  
 end

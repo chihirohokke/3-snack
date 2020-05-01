@@ -13,7 +13,10 @@ class User < ApplicationRecord
   has_many :posts
   
   has_many :likes
-  has_many :sweets, through: :likes, source: :post
+  has_many :sweets, dependent: :destroy, through: :likes, source: :post
+  
+  has_many :comments, dependent: :destroy
+  
   
   def sweet(post) 
     likes.find_or_create_by(post_id: post.id) 

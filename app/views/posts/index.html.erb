@@ -1,1 +1,10 @@
+<!--ここから先が検索機能の実装部-->
+<div class="mb-3">
+<%= form_with url:'/posts', method: :get, local: true do |f| %>
+  <%= f.label :content, 'フリーワード検索(レシピ,材料名など)' %>
+  <%= f.text_field :content %>
+  <%= f.submit 'Search' %> <%= link_to 'Clear', posts_path %>
+<% end %>
+</div>
+<!--ここまで-->
 <%= render 'posts/posts', posts: @posts %>
