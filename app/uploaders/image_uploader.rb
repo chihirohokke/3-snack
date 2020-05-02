@@ -6,11 +6,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
-  # if Rails.env.production?
+  if Rails.env.production?
     storage :fog
-  # else
-  #   storage :file
-  # end
+  else
+    storage :file
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -45,12 +45,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [636, 360]
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url(*args)
-  #   # For Rails 3.1+ asset pipeline compatibility:
-    ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  # def default_url(*args)
+  # #   # For Rails 3.1+ asset pipeline compatibility:
+  #   ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
 
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  end
+  # #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  # end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
@@ -79,9 +79,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   
   # 拡張子が同じでないとGIFをJPGとかにコンバートできないので、ファイル名を変更
-  def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
-  end
+  # def filename
+  #   super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
+  # end
  
  # ファイル名を日付にするとタイミングのせいでサムネイル名がずれる
  #ファイル名はランダムで一意になる

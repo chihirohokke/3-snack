@@ -4,11 +4,11 @@
    width: 100px;
    height: 100px;
  }
- /*User show page*/
- .card-body .icon {
-   width: 300px;
-   height: 300px;
- }
+ /*User show page */
+ /*.card-body .icon {*/
+ /*  width: 300px;*/
+ /*  height: 300px;*/
+ /*}*/
  
 /*Top-page*/
 .app-title {

@@ -7,8 +7,8 @@
       <div class="card-body">
         <% if @user.image? %>
           <%= image_tag(@user.image.thumb.url) %>
-        <% else %>
-          <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
+        <%# else %>
+          <!--<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>-->
         <% end %>
       </div>
     </div>
