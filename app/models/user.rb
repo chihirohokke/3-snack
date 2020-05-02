@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 7 }
   #画像アップロード
   mount_uploader :image, ImageUploader
+  # validates :image, presence: true
   
   has_many :posts
   
