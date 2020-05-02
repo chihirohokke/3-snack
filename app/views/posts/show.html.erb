@@ -3,7 +3,7 @@
     <%= image_tag(@post.image.thumb3.url) %>
       <div class="card-body">
         <span><%= link_to image_tag(@post.user.image.thumb100.url), user_path(@post.user) %></span><h2><%= @post.title %></h2>
-        <p><%= @post.content %></p>
+        <p><%= simple_format(@post.content) %></p>
         <% if logged_in? %>
           <div class="float-left">
             <%= render 'likes/sweet_button', post: @post %>
