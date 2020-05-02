@@ -13,5 +13,7 @@ CarrierWave.configure do |config|
     region: ENV['AWS_DEFAULT_REGION'],
     path_style: true
   }
+  
+  config.asset_host = 'https://chibasbucket.s3.amazonaws.com'
 
 end
