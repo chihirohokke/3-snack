@@ -31,3 +31,5 @@ module SnackApp
     config.generators.system_tests = nil
   end
 end
+
+
