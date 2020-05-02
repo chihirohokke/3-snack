@@ -8,10 +8,14 @@
         <% if @user.image? %>
           <%= image_tag(@user.image.thumb.url) %>
         <%# else %>
-          <!--<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>-->
+          <!--停止中<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>-->
         <% end %>
       </div>
     </div>
+    <% if @user == current_user %>
+      <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-light btn-sm" %>
+      <%= link_to '退会', @user, method: :delete, data: { confirm: "本当に退会しますか？"}, class: "btn btn-light btn-sm" %>
+    <% end %>  
   </div>  
   <div class="col-sm-8 offset-sm-2 mt-5">
     <ul class="nav nav-tabs nav-justified mb-3">

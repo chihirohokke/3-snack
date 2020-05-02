@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   get 'join', to: 'users#new'
-  resources :users, only: [:index, :show, :create] do #後々 edit, update, destroy 追加予定
+  delete 'destroy_user', to: 'users#destroy'
+  resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do 
     member do
       get :sweets
     end 

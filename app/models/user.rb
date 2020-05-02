@@ -11,7 +11,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates :image, presence: true
   
-  has_many :posts
+  has_many :posts, dependent: :destroy
   
   has_many :likes
   has_many :sweets, dependent: :destroy, through: :likes, source: :post

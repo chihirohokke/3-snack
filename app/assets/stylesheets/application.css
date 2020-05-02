@@ -1,9 +1,11 @@
 
  /*Users page*/
- .media .icon {
-   width: 100px;
-   height: 100px;
- }
+ 
+.media .icon {
+ width: 100px;
+ height: 100px;
+}
+ 
  /*User show page */
  /*.card-body .icon {*/
  /*  width: 300px;*/
@@ -11,13 +13,33 @@
  /*}*/
  
 /*Top-page*/
+
 .app-title {
  color: #6c3524;
+ font-family: 'Avenir', serif;
 }
 
-/*.top-wrapper {*/
-/* background: url("/assets/p5021.jpg") no-repeat fixed left bottom;*/
-/* background-size: cover;*/
-/* width: 800px;*/
-/* height: 500px;*/
-/*}*/
+.jumbotron-extend {
+ position: relative;
+ height: 100vh;
+ min-height: 300px;
+ background: url("/assets/fruit1750_TP_V.jpg") center no-repeat;
+ background-size: cover;
+}
+
+.jumbotron-container {
+ position: relative;
+ top: 50%;
+ transform: translateY(-50%);
+}
+
+.btn-black {
+ background-color: #000;
+ color: #fff;
+ font-family: 'Avenir', serif;
+}
+
+.btn-black:hover {
+ background-color: #fff;
+ color: #000;
+}
