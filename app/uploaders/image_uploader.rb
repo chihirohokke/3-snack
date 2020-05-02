@@ -32,7 +32,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :thumb100 do
     process :resize_to_fit => [100, 100]
   end
-  #投稿一覧のユーザー画像で使用
+  #投稿一覧のユーザー画像、コメント画像で使用
   version :thumb50 do
     process :resize_to_fit => [50, 50]
   end
