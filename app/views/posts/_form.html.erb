@@ -11,20 +11,20 @@
       <div class="form-group">
         <%= f.label :title, 'タイトル' %>
         <%= f.text_field :title, class: 'form-control' %>
-        <small id="submit-tip" class="form-text text-muted">
+        <small class="form-text text-muted">
         タイトルを入力してください。
         </small>
       </div>
       <div class="form-group">
         <%= f.label :content, '内容' %>
         <%= f.text_area :content, class: 'form-control', rows: 10 %>
-        <small id="submit-tip" class="form-text text-muted">
+        <small class="form-text text-muted">
         レシピ,材料,感想などを入力してください。
         </small>
       </div>
 
       <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
-      <small id="submit-tip" class="form-text text-muted">
+      <small class="form-text text-muted">
         投稿する前に投稿内容を見直してください。
       </small>
     <% end %>
