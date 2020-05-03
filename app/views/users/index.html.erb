@@ -4,8 +4,9 @@
     <li class="media">
       <% if user.image? %>
         <%= link_to image_tag(user.image.thumb100.url), user_path(user), class: "mr-2 mb-2 border border-primary" %>
-      <% else %>
-        <image src="/assets/default.png" class="icon mr-2 mb-2 border border-primary" alt="ユーザーアイコン" %>
+      <!--デフォルトアイコン停止中-->
+      <%# else %>
+        <!--<image src="/assets/default.png" class="icon mr-2 mb-2 border border-primary" alt="ユーザーアイコン" %>-->
       <% end %>
       <div class="pt-4">
         <%= link_to user.name, user_path(user) %> 

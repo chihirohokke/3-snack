@@ -1,10 +1,11 @@
 
  /*Users page*/
  
-.media .icon {
- width: 100px;
- height: 100px;
-}
+ /*デフォルトアイコン停止中*/
+/*.media .icon {*/
+/* width: 100px;*/
+/* height: 100px;*/
+/*}*/
  
  /*User show page */
  /*.card-body .icon {*/
@@ -14,7 +15,7 @@
  
 /*Top-page*/
 
-.app-title {
+.app-title, .app-user {
  color: #6c3524;
  font-family: 'Avenir', serif;
 }
@@ -42,4 +43,11 @@
 .btn-black:hover {
  background-color: #fff;
  color: #000;
+}
+
+.about-text {
+ background: #fdede4;
+ margin: 0 auto;
+ width: 560px;
+ padding-bottom: 5px;
 }

@@ -7,8 +7,9 @@
       <div class="card-body">
         <% if @user.image? %>
           <%= image_tag(@user.image.thumb.url) %>
+        <!--デフォルトアイコン停止中-->
         <%# else %>
-          <!--停止中<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>-->
+          <!--<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>-->
         <% end %>
       </div>
     </div>

@@ -2,15 +2,16 @@
   <div class="card mx-auto" style="width: 40rem;">
     <%= image_tag(@post.image.thumb3.url) %>
       <div class="card-body">
-        <span><%= link_to image_tag(@post.user.image.thumb100.url), user_path(@post.user) %></span><h2><%= @post.title %></h2>
+        <span><%= link_to image_tag(@post.user.image.thumb100.url), user_path(@post.user) %></span>
+        <h2 class="pt-2"><%= @post.title %></h2>
         <p><%= simple_format(@post.content) %></p>
         <% if logged_in? %>
-          <div class="float-left">
+          <div class="float-left mt-3">
             <%= render 'likes/sweet_button', post: @post %>
           </div>  
         <% end %>
         <% if current_user == @post.user %>　
-          <div class="float-right">
+          <div class="float-right mt-3">
             <%= link_to "編集", edit_post_path(@post), class: "btn btn-light btn-sm" %>
             <%= link_to "削除", destroy_user_path, method: :delete, data: { confirm: "本当に削除してよろしいですか？"}, class: "btn btn-danger btn-sm" %>
           </div>
