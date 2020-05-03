@@ -46,7 +46,9 @@
 }
 
 .about-text {
+ border-radius: 10px;
  background: #fdede4;
+ background-size: cover;
  margin: 0 auto;
  width: 560px;
  padding-bottom: 5px;
