@@ -2,7 +2,7 @@
   <div class="section pb-5">
     <div class="d-flex flex-wrap justify-content-sm-between">
       <% posts.each do |post| %>
-        <div class="card" style="width: 20rem;">
+        <div class="card mb-4" style="width: 20rem;">
           <% if post.image? %>
           <%= link_to image_tag(post.image.thumb2.url, alt: "Card_image_cap_#{post.id}"), post_path(post) %>
           <% else %>
