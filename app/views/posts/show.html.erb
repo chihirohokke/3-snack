@@ -6,7 +6,7 @@
         <h2 class="pt-2"><%= @post.title %></h2>
         <p><%= simple_format(@post.content) %></p>
         <% if logged_in? %>
-          <div class="float-left mt-3">
+          <div id="post-<%= @post.id %>" data-post-id="<%= @post.id %>" class="float-left mt-3">
             <%= render 'likes/sweet_button', post: @post %>
           </div>  
         <% end %>
