@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :sweets, :edit, :update, :destroy]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :sweets, :edit, :update, :destroy]
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(20)
@@ -61,7 +61,6 @@ class UsersController < ApplicationController
   end
   
   def sweets
-    @user = User.find(params[:id])
     @sweets = @user.sweets.page(params[:page])
     counts(@user)
   end

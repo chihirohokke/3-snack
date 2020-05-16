@@ -12,7 +12,9 @@
             <h5><%= link_to post.title, post_path(post), class: "card-title" %></h5>
             <div class="float-left"><%= link_to image_tag(post.user.image.thumb50.url, alt: "Card_user_image_cap_#{post.id}"), user_path(post.user) %></div>
             <% if logged_in? %>
-            <div class="float-right mt-3"><%= render 'likes/sweet_button', post: post %></div> 
+            <div class="float-right mt-3">
+              <%= render 'likes/sweet_button', post: post %>
+            </div> 
             <% end %>
           </div>
         </div>
