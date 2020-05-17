@@ -1,21 +1,40 @@
+/* Over all */
+
+.header {
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+
+
 /*Top-page*/
 
-.app-title,
-.app-user {
-  color: #6c3524;
-  font-family: 'Avenir', serif;
-}
 
 .jumbotron-extend {
   position: relative;
   height: 100vh;
+  width: 100vw;
   min-height: 300px;
-  background: url("/assets/fruit1750_TP_V.jpg") center no-repeat;
+  background: url("/assets/okashi77.jpg") center no-repeat;
   background-size: cover;
   .jumbotron-container {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+     letter-spacing: 1px;
+  }
+  .app-title,
+  .app-user {
+    color: #6c3524;
+    font-family: 'Avenir', serif;
+  }
+  .app-title {
+    font-size: 4rem;
   }
 }
 
@@ -38,3 +57,5 @@
   width: 560px;
   padding-bottom: 5px;
 }
+
+/* Post page */
