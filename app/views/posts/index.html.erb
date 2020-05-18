@@ -1,5 +1,5 @@
 <!--ここから先が検索機能の実装部-->
-<div class="mt-4 mb-3">
+<div class="mt-4 mb-4">
   <%= form_with url:'/posts', method: :get, local: true do |f| %>
     <%= f.label :content, 'フリーワード検索(レシピ,材料名など)' %>
     <%= f.text_field :content %>

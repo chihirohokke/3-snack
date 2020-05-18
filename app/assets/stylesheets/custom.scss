@@ -1,14 +1,21 @@
 /* Over all */
 
 .body {
+  position: relative;
   margin: 0;
   padding: 0;
 }
 
 .header {
-  position: relative;
   width: 100vw;
   letter-spacing: 1.2px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.container {
+  padding-top: 70px;
 }
 
 .box {
@@ -20,7 +27,8 @@
   padding: 1.25rem;
 }
 
-a, a:hover {
+a,
+a:hover {
   color: #6b3f31;
 }
 
@@ -28,16 +36,14 @@ a, a:hover {
 
 .jumbotron-extend {
   position: absolute;
-  top: 56px;
+  top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw; // min-height: 300px;
+  height: 125vh;
+  width: 100vw;
   background: url("/assets/okashi77.jpg") center no-repeat;
   background-size: cover;
   .jumbotron-container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    margin: 277px auto 0;
     letter-spacing: 1px;
     .app-title,
     .app-user {
@@ -72,13 +78,14 @@ a, a:hover {
 .about-text {
   text-align: left;
   border-radius: 10px;
-  background: #fdede4;
+  background: rgba(251, 218, 200, 0.6);
   background-size: cover;
   margin: 0 auto;
   width: 560px;
   padding-bottom: 5px;
   p {
     line-height: 30px;
+    font-weight: bold;
   }
 }
 
