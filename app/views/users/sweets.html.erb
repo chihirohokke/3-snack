@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <% if @user.image? %>
-          <%= image_tag(@user.image.thumb.url) %>
+          <%= image_tag(@user.image.thumb.url, alt: "user_sweets_image_#{@user.id}") %>
         <% else %>
           <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
         <% end %>
