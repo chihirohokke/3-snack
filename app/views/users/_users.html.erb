@@ -12,7 +12,7 @@
           <div class="pt-4">
             <%= link_to user.name, user_path(user) %> 
           </div>
-          <div class="mt-5 mx-auto">
+          <div id="user-<%= user.id %>" data-user-id="<%= user.id %>" class="mt-5 mx-auto">
             <%= render 'relationships/follow_button', user: user %>
           </div>
         </li>

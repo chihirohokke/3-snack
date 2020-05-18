@@ -11,7 +11,7 @@
         <%# else %>
           <!--<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>-->
         <% end %>
-        <div>
+        <div id="user-<%= @user.id %>" data-user-id="<%= @user.id %>">
           <%= render 'relationships/follow_button', user: @user %>
         </div>
       </div>
