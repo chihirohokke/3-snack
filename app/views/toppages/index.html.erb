@@ -1,9 +1,10 @@
 <div class="center jumbotron-extend">
+  <%= render 'layouts/flash_messages' %>
   <div class="text-center container-fluid jumbotron-container">
     <h1 class="app-title">3:snack<i class="fas fa-cookie-bite"></i></h1>
-    <h5>3時のおやつをシェアしませんか？</h5>
+    <h4 class="sub-title">〜 ３時のおやつをシェアしませんか？ 〜</h4>
     <% if logged_in? %>
-      <p class="app-user">Logging in : <%= current_user.name %></p>
+      <p class="app-user">Logged in : <%= current_user.name %></p>
     <% else %>
       <div class="mt-3 mb-3">
         <%= link_to 'Join!', join_path, class: 'btn btn-lg btn-black' %>
@@ -12,7 +13,8 @@
     <% end %>  
     <div class="row">
       <div class="about-text col-6">
-        <p class="pt-3">手作りsweetsの写真を投稿して、レシピなどを共有できます。<br>気になった写真にはいいね【sweetボタン】で<br>お気に入りにいれましょう。</p>
+        <p class="pt-3">お家で手作りしたsweetsの写真を投稿して、レシピなどを共有できます。<br>気になった写真にはいいね【sweetボタン】でお気に入りにいれましょう。<br>
+        ユーザープロフィールでユーザーの投稿した写真とお気に入りに入れた写真【sweets】をみる事ができます。</p>
       </div>
     </div>
   </div>

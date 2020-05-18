@@ -1,10 +1,10 @@
-<div class="section pb-5">
+<div class="post-show">
   <div class="card mx-auto" style="width: 40rem;">
-    <%= image_tag(@post.image.thumb3.url) %>
+    <%= image_tag(@post.image.thumb3.url, alt: "sweets_image_#{@post.id}") %>
       <div class="card-body">
-        <span><%= link_to image_tag(@post.user.image.thumb100.url), user_path(@post.user) %></span>
+        <span><%= link_to image_tag(@post.user.image.thumb100.url, alt: "sweet_user_image_#{@post.id}"), user_path(@post.user) %></span>
         <h2 class="pt-2"><%= @post.title %></h2>
-        <p><%= simple_format(@post.content) %></p>
+        <%= simple_format(@post.content) %>
         <% if logged_in? %>
           <div id="post-<%= @post.id %>" data-post-id="<%= @post.id %>" class="float-left mt-3">
             <%= render 'likes/sweet_button', post: @post %>
@@ -27,7 +27,7 @@
         <td>
           <div>
             <% unless comment.user.blank? %>
-              <%= link_to image_tag(comment.user.image.thumb50.url), user_path(comment.user_id) %>
+              <%= link_to image_tag(comment.user.image.thumb50.url, alt: "comment_user_image_#{@post.id}"), user_path(comment.user_id) %>
             <% end %>
               <%= comment.user.name unless comment.user.blank? %>
             <br />
@@ -45,14 +45,16 @@
       <br />
     <% end %>
     <% if logged_in? %>
-      <%= form_with(model: [@post, @comment], local: true) do |f| %>
-        <%= f.text_area :content, class: "form-control", rows: 5 %>
-        <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
-          <i class="far fa-comments"></i> コメントする
+      <div class="comment-box">
+        <%= form_with(model: [@post, @comment], local: true) do |f| %>
+          <%= f.text_area :content, class: "form-control", rows: 5 %>
+          <%= button_tag type: "submit", class: "btn btn-success float-right mt-1" do %>
+            <i class="far fa-comments"></i> コメントする
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     <% end %>
-</div>
+  </div>
   <!--ここまで-->
 </div>
  

@@ -1,13 +1,13 @@
-<span class="like">
+<div class="like">
 <% if current_user.like?(post) %>
   <%= form_with(model: current_user.likes.find_by(post_id: post.id), remote: true, method: :delete) do |f| %>
     <%= hidden_field_tag :post_id, post.id, id: "post_id_#{post.id}" %>
-    <%= f.submit 'Not sweet', class: 'btn btn-info  btn-sm' %>
+    <%= f.submit 'Not sweet', class: 'btn btn-sweet btn-pink  btn-sm' %>
   <% end %>
 <% else %>
   <%= form_with(model: current_user.likes.build, remote: true) do |f| %>
-    <%= hidden_field_tag :post_id, post.id %>
-    <%= f.submit 'Sweet!', class: 'btn btn-outline-info  btn-sm' %>
+    <%= hidden_field_tag :post_id, post.id, id: "post_id_#{post.id}" %>
+    <%= f.submit 'Sweet!', class: 'btn  btn-sweet btn-outline-pink  btn-sm' %>
   <% end %>
 <% end %>
-</span>
+</div>

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="user-profile row">
   <div class="col-sm-4 offset-sm-4">
     <div class="card" style="width: 21.5rem;">
       <div class="card-header">
@@ -11,6 +11,12 @@
           <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
         <% end %>
       </div>
+    </div>
+    <div class="edit-user">
+      <% if @user == current_user %>
+        <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-light btn-sm" %>
+        <%= link_to '退会', @user, method: :delete, data: { confirm: "本当に退会しますか？"}, class: "btn btn-light btn-sm" %>
+      <% end %> 
     </div>
   </div>  
   <div class="col-sm-8 offset-sm-2 mt-5">

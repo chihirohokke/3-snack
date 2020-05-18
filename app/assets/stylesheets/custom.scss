@@ -1,40 +1,56 @@
 /* Over all */
 
-.header {
-  width: 100%;
-  letter-spacing: 1px;
-}
-
-.container {
+.body {
   margin: 0;
   padding: 0;
 }
 
+.header {
+  position: relative;
+  width: 100vw;
+  letter-spacing: 1.2px;
+}
 
+.box {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
+  color: #4a4a4a;
+  display: block;
+  padding: 1.25rem;
+}
 
 /*Top-page*/
 
-
 .jumbotron-extend {
-  position: relative;
+  position: absolute;
+  top: 56px;
+  left: 0;
   height: 100vh;
-  width: 100vw;
-  min-height: 300px;
+  width: 100vw; // min-height: 300px;
   background: url("/assets/okashi77.jpg") center no-repeat;
   background-size: cover;
   .jumbotron-container {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-     letter-spacing: 1px;
-  }
-  .app-title,
-  .app-user {
-    color: #6c3524;
-    font-family: 'Avenir', serif;
-  }
-  .app-title {
-    font-size: 4rem;
+    letter-spacing: 1px;
+    .app-title,
+    .app-user {
+      color: #6c3524;
+      font-family: 'Avenir', serif;
+    }
+    .app-title {
+      font-size: 4rem;
+    }
+    .sub-title {
+      font-weight: bold;
+      margin: 20px 0 20px 0;
+    }
+    .app-user {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -56,6 +72,74 @@
   margin: 0 auto;
   width: 560px;
   padding-bottom: 5px;
+  p {
+    line-height: 30px;
+  }
 }
 
 /* Post page */
+
+.post-show {
+  margin: 50px 0 200px 0px;
+}
+
+.card {
+  border-radius: 3px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
+}
+
+.comment-box {
+  border-radius: 3px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .02);
+  display: block;
+  padding: 3.5rem;
+}
+
+.btn-sweet {
+  border-radius: 50%;
+  color: #6c3524;
+}
+
+.btn-pink {
+  background-color: pink;
+}
+
+.btn-pink:hover {
+  color: #6c3524;
+}
+
+.btn-outline-pink {
+  border-color: pink;
+}
+
+.btn-outline-pink:hover {
+  background-color: pink;
+  color: #6c3524;
+}
+
+/* User page  */
+
+.user-profile {
+  margin-top: 50px;
+}
+
+.edit-user {
+  padding-left: 60px;
+  padding-top: 10px;
+}
+
+.media {
+  border-bottom: 1px solid rgba(219, 219, 219, .5);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  .is-rounded {
+    border-radius: 50%;
+  }
+}
+
+/* Form */
+
+.form-title {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
