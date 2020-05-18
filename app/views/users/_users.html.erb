@@ -3,17 +3,17 @@
       <ul class="list-unstyled">
         <% users.each do |user| %>
         <li class="media">
+          <div class="users-block">
           <% if user.image? %>
             <%= link_to image_tag(user.image.thumb100.url, alt: "user_image_#{user.id}"), user_path(user), class: "border mr-3 mb-3" %>
-          <!--デフォルトアイコン停止中-->
+              <!--デフォルトアイコン停止中-->
           <%# else %>
-            <!--<image src="/assets/default.png" class="icon mr-2 mb-2 border border-primary" alt="ユーザーアイコン" %>-->
+              <!--<image src="/assets/default.png" class="icon mr-2 mb-2 border border-primary" alt="ユーザーアイコン" %>-->
           <% end %>
-          <div class="pt-4">
             <%= link_to user.name, user_path(user) %> 
           </div>
           <% if logged_in? %>
-          <div id="user-<%= user.id %>" data-user-id="<%= user.id %>" class="mt-5 mx-auto">
+          <div id="user-<%= user.id %>" data-user-id="<%= user.id %>" class="users-follow-button">
             <%= render 'relationships/follow_button', user: user %>
           </div>
           <% end %>
