@@ -11,22 +11,31 @@
         <%# else %>
           <!--<image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>-->
         <% end %>
+        <div>
+          <%= render 'relationships/follow_button', user: @user %>
+        </div>
       </div>
     </div>
     <div class="edit-user">
       <% if @user == current_user %>
-        <%= link_to "プロフィールを編集する", edit_user_path(@user), class: "btn btn-light btn-sm" %>
+        <%= link_to "プロフィールを編集", edit_user_path(@user), class: "btn btn-light btn-sm" %>
         <%= link_to '退会', @user, method: :delete, data: { confirm: "本当に退会しますか？"}, class: "btn btn-light btn-sm" %>
       <% end %>  
     </div>  
   </div>  
-  <div class="col-sm-8 offset-sm-2 mt-5">
+  <div class="col-sm-8 offset-sm-2 mt-5 mb-5">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>"><%= @user.name %>'s Posts  <span class="badge badge-secondary">
         <%= @count_posts %></span></a>
       </li>
       <li class="nav-item"><a href="<%= sweets_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(sweets_user_path(@user)) %>">Sweets  <span class="badge badge-secondary">
         <%= @count_sweets %></span></a>
+      </li>
+      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary">
+        <%= @count_followings %></span></a>
+      </li>
+      <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary">
+        <%= @count_followers %></span></a>
       </li>
     </ul>
     <%= render 'posts/posts', posts: @posts %>

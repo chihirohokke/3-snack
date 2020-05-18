@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do 
     member do
       get :sweets
+      get :followings
+      get :followers
     end 
   end  
       
@@ -19,4 +21,5 @@ Rails.application.routes.draw do
   
   
   resources :likes, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 end

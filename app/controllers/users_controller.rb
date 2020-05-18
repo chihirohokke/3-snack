@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :sweets, :edit, :update, :destroy]
-  before_action :set_user, only: [:show, :sweets, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :sweets, :edit, :update, :destroy, :followings, :followers]
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(20)
@@ -62,6 +62,16 @@ class UsersController < ApplicationController
   
   def sweets
     @sweets = @user.sweets.page(params[:page])
+    counts(@user)
+  end
+  
+  def followings
+    @followings = @user.followings.page(params[:page])
+    counts(@user)
+  end
+  
+  def followers
+    @followers = @user.followers.page(params[:page])
     counts(@user)
   end
   
